@@ -4,7 +4,7 @@
 
 ## Data:
 
-## Code
+## Code:
 
 ### Stranger Detector
 

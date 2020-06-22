@@ -27,8 +27,8 @@ This project aims to help email communications between new teammates who are sit
   * Output: path length data (***==XXXXXXX==.csv***) ["node_i", "node_j", "s_path_length"]
 
 * 02_bag_of_words
-  * What it does: Create bag of words for each user, for each of the distant pairs, create and store a list of non-overlapping words
-  * Input: Enron dataset (emails_parsed.csv)
+  * What it does: Create bag of words for each user, *for each of the distant pairs*, create and store a list of non-overlapping words
+  * Input: Enron dataset (emails_parsed.csv), path length data (***==XXXXXXX==.csv***) 
   * Output: Parsed email dataframe (***==XXXXXXX==.csv***)
 
 * 03_tfidf

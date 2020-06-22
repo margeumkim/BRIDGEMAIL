@@ -24,7 +24,7 @@ This project aims to help email communications between new teammates who are sit
 * 01_network_analysis
   * What it does: Create an edgelist, import into a graph, perform network EDA, and calcualte and store pairwise shortest path length information  
   * Input: Enron dataset (emails_parsed.csv)
-  * Output: path length data (***==XXXXXXX==.csv***), distant pair list (***==XXXXXXX==.csv***)
+  * Output: path length data (***==XXXXXXX==.csv***) ["node_i", "node_j", "s_path_length"]
 
 * 02_bag_of_words
   * What it does: Create bag of words for each user, for each of the distant pairs, create and store a list of non-overlapping words

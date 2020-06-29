@@ -19,36 +19,30 @@ This project aims to help email communications between new teammates who are sit
 * 00_parse_email: 
   * What it does: Parse the email data into separate columns and store for later use 
   * Input: Enron dataset (emails.csv)
-  * Output: Parsed email dataframe (emails_parsed.csv)
+  * Output: Parsed email dataframe (emails_parsed.csv) 
 
 * 01_network_analysis
   * What it does: Create an edgelist, import into a graph, perform network EDA, and calcualte and store pairwise shortest path length information  
   * Input: Enron dataset (emails_parsed.csv)
-  * Output: path length data (pw_path_length_df.csv) ["node_i", "node_j", "s_path_length"]
+  * Output: path length data (pw_path_length_df.csv), address-user identification info (address_user_df.csv)
 
 * 02_bag_of_words
   * What it does: Create bag of words for each user, *for each of the distant pairs*, create and store a list of non-overlapping words
-  * Input: Enron dataset (emails_parsed.csv), path length data (***==XXXXXXX==.csv***) 
-  * Output: Parsed email dataframe (***==XXXXXXX==.csv***)
+  * Input: Enron dataset (emails_parsed.csv), path length data (pw_path_length_df.csv), address-user identification info (address_user_df.csv)
+  * Output: User-level pairwise non-overlapping words (username_nonoverlap.pkl), pairwise information stacked for all pairs (pairwise_nw_bow_df.csv)
 
 * 03_tfidf
   * What it does: Create a dictionary of words that are used frequenctly across all users and all email topic categories (words in this dictionary are presumably used in  multiple context by many users) 
-  * Input: Enron dataset (emails_parsed.csv), label information (***==XXXXXXX==.csv***)
-  * Output: Dictionary of context-dependent words (**dict_for_bert.csv**)
+  * Input: Enron dataset (emails_parsed.csv), label information ("enron_05_17_2015_with_labels_v2.csv")
+  * Output: Dictionary of context-dependent words ('keywords_reduced.csv')
 
-* 04_bert_train
-  * What it does: 
-  * Input: Enron dataset (emails.csv), label information (***==XXXXXXX==.csv***),  Dictionary of context-dependent words (**dict_for_bert.csv**)
-  * Output: Fine-tuned models (***==XXXXXXX==.YYY***), Fine-tuned models (***==XXXXXXX==.YYY***), Fine-tuned models (***==XXXXXXX==.YYY***)
+* 04_word_sense_disambiguation
+  * What it does: Using BERT pretrained model, evaluate each employee's word usages for top 100 context-dependent keywords 
+  * Input: Enron dataset (emails_parsed.csv), Dictionary of context-dependent words ('keywords_reduced.csv'), address-user identification info (address_user_df.csv)
+  * Output: User-level keyword-meaning associations (word_meaning.pkl)
 
-* 05_bert_evaluate
-  * What it does:  
-  * Input: Enron dataset (emails.csv), Fine-tuned models (***==XXXXXXX==.YYY***), Fine-tuned models (***==XXXXXXX==.YYY***), Fine-tuned models (***==XXXXXXX==.YYY***)
-  * Output: User-level word-sense information ((***==XXXXXXX==.YYY***)
-
-* 06_web_app
-  * What it does: 
-  * Input: path length data (***==XXXXXXX==.csv***),  Dictionary of context-dependent words (**dict_for_bert.csv**), User-level word-sense information ((***==XXXXXXX==.YYY***)
-  * Output: 
+* 05_web_app
+  * What it does: Create a web app that demonstrate what sorts of information BRIDGEMAIL will provide to email senders
+  * This script assumes one user as a sender; in this webapp, the user can choose from four potential recipients
 
 
